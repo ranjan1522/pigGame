@@ -44,6 +44,8 @@ const switchPlayer = function () {
   player1El.classList.toggle('player--active');
 };
 
+init();
+
 //initializing value
 score0El.textContent = 0;
 score1El.textContent = 0;
