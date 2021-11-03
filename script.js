@@ -11,6 +11,11 @@ const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 const player0El = document.querySelector('.player--0');
 const player1El = document.querySelector('.player--1');
+const intructionBtn = document.getElementById('myBtn');
+const intructionModal = document.getElementById('myModal');
+const intructionModalClose = document.getElementsByClassName('close')[0];
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
 
 let currentScore, activePlayer, score, playing;
 
@@ -19,17 +24,20 @@ const init = function () {
   activePlayer = 0;
   score = [0, 0];
   playing = true;
+
   score0El.textContent = 0;
   score1El.textContent = 0;
   diceEl.classList.add('hidden');
   currentScore0El.textContent = 0;
   currentScore1El.textContent = 0;
+
   document
     .querySelector(`.player--${activePlayer}`)
     .classList.remove('player--active');
   document
     .querySelector(`.player--${activePlayer}`)
     .classList.remove('player--winner');
+
   player0El.classList.remove('player--winner');
   player1El.classList.remove('player--winner');
   player0El.classList.add('player--active');
@@ -81,6 +89,8 @@ btnHold.addEventListener('click', function () {
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--active');
       diceEl.classList.add('hidden');
+      modal.classList.remove('hidden');
+      overlay.classList.remove('hidden');
     } else {
       switchPlayer();
     }
@@ -88,3 +98,17 @@ btnHold.addEventListener('click', function () {
 });
 
 btnNew.addEventListener('click', init);
+
+intructionBtn.addEventListener('click', function () {
+  intructionModal.style.display = 'block';
+});
+
+intructionModalClose.onclick = function () {
+  intructionModal.style.display = 'none';
+};
+
+window.onclick = function (event) {
+  if (event.target === intructionModal) {
+    intructionModal.style.display = 'none';
+  }
+};

@@ -25,12 +25,39 @@
           <p class="current-score" id="current--1">0</p>
         </div>
       </section>
-
       <img src="dice-5.png" alt="Playing dice" class="dice" />
       <button class="btn btn--new">🔄 New game</button>
       <button class="btn btn--roll">🎲 Roll dice</button>
       <button class="btn btn--hold">📥 Hold</button>
     </main>
+    <!-- Trigger/Open The Modal -->
+<button id="myBtn">❓</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p><h2> Instructions</h2>
+      <br><br>
+    <ol>
+  <li>In this game there are two players: Player1 and Player2.</li>
+  <li>You need to start the game by clicking on <b>Roll Dice</b> button and your dice number will become your current score. How many times you play, your dice number will keep get add in the current score.</li>
+  <li>If your dice number comes as 1 then you loose the game and other player will get active.</li>
+  <li>If you press <b>Hold </b> button your current score will get add to total score and you will loose your trun and other player will get active.</li>
+  <li>If any player score 20, then you are the winner.</li>
+  <li>You can reset game at any point of time by clicking on <b>New Game</b> button.</li>
+</ol>  
+</p>
+  </div>
+
+</div>
+<div class="modal hidden">
+  <button class="close-modal">&times;</button>
+  <h1>Player1 has won the game🏆🏆</h1>
+</div>
+<div class="overlay hidden"></div>
     <script src="script.js"></script>
   </body>
 </html>
